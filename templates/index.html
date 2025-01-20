@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance Dashboard</title>
+    <style>
+        body, html {
+            height: 100%;  /* Make sure the body and html cover full height */
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f8f9fa;  /* Background color */
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;  /* Full height to allow vertical centering */
+            width: 100%;
+        }
+
+        .card {
+            width: 100%;
+            max-width: 500px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            background-color: white;
+        }
+
+        .card-body {
+            padding: 30px;
+            text-align: center;
+        }
+
+        .card-title {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .h5 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .list-group-item {
+            padding: 10px;
+            list-style-type: none;
+            text-align: left;
+            margin-left: 30px;
+        }
+
+        .btn-danger {
+            width: 100%;
+            padding: 12px;
+            font-size: 1.1rem;
+            border-radius: 8px;
+            background-color: #EE204D;
+            color: white;
+            border: none;
+        }
+
+        .btn-danger:hover {
+            background-color: #c82333;
+        }
+    </style>
+</head>
+<body class="bg-light">
+    <div class="container">
+        <div class="card shadow-lg">
+            <div class="card-body text-center">
+                <h1 class="card-title mb-4">Welcome, {{ session['username'] }}!</h1>
+                <h2 class="h5 mb-3">Select a Division</h2>
+                
+                <ul class="list-group list-group-flush mb-4">
+                    {% for division in divisions %}
+                        <li class="list-group-item">
+                            <a href="{{ url_for('division_page', division=division) }}" class="text-decoration-none text-primary">
+                                {{ division }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+                
+                <form action="{{ url_for('logout') }}" method="get">
+                    <button type="submit" class="btn btn-danger w-100">Logout</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

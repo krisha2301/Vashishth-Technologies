@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Student - {{ division }}</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            background-color: #f8f9fa;  /* Light background color */
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+            padding: 30px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            align-self: center;
+            margin-left: 400px;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        label {
+            display: inline-block;
+            font-size: 1rem;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 1rem;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 12px;
+            font-size: 1.1rem;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Add Student to {{ division }}</h1>
+        
+        <form method="POST">
+            <label for="name">Student Name:</label>
+            <input type="text" name="name" required>
+            <button type="submit">Add Student</button>
+        </form>
+    </div>
+</body>
+</html>
